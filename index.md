@@ -1,37 +1,100 @@
-## Welcome to GitHub Pages
+---
+title: PyTgCalls documentation
+description: Async client API for the Telegram Group Calls
+image: https://avatars.githubusercontent.com/u/75855609
+---
+# PyTgCalls API
+> PyTgCalls is based on PyServerCall, [TgCallsJS](https://github.com/tgcallsjs/tgcalls), 
+> [SocketIO](https://socket.io/) and [WebRTC](https://webrtc.org/)
+> for developers keen on building bots for Telegram.
 
-You can use the [editor on GitHub](https://github.com/pytgcalls/pytgcalls/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+# Recent changes
+> Added support to Layer 123
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+# Audio Needed
+This is audio type needed
 
-### Markdown
+Field | Value
+--- | ---
+acodec | pcm_s16le 
+bitrate | 48000
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+# Methods
+Here are all the methods available to make requests to PyTgCalls
 
-```markdown
-Syntax highlighted code block
+## join_group_call
+Join to group call with audio source
 
-# Header 1
-## Header 2
-### Header 3
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of Group
+file_path | String | File path of RAW Stream Audio
 
-- Bulleted
-- List
+## leave_group_call
+Leave group call
 
-1. Numbered
-2. List
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of Group
 
-**Bold** and _Italic_ and `Code` text
+## change_volume_call
+Change volume of audio stream by changing personal volume
 
-[Link](url) and ![Image](src)
-```
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of Group
+volume | Integer | Volume of stream (0-200)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+## pause_stream
+Set pause mode audio stream by sending void packets
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/pytgcalls/pytgcalls/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of Group
 
-### Support or Contact
+## resume_stream
+Set resume mode audio stream by resuming stream reading
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of Group
+
+## change_stream
+Change audio stream without reconnection
+
+Field | Type | Description
+--- | --- | ---
+chat_id | Integer | Chat ID of Group
+file_path | String | File path of RAW Stream Audio
+
+## get_cache_id
+Return current UserID
+
+## run
+Start running Pyrogram and PyTgCalls Session
+
+Field | Type | Description
+--- | --- | ---
+app | pyrogram.Client | Pyrogram Client Class initialized
+
+## on_event_update
+Decorator handling all information about status of calls and stream
+
+Field | Type | Description
+--- | --- | ---
+func | Callable | Callable decorator
+
+## on_stream_end
+Decorator handling when stream ends
+
+Field | Type | Description
+--- | --- | ---
+func | Callable | Callable decorator
+
+## on_stream_end
+Decorator handling when stream ends
+
+Field | Type | Description
+--- | --- | ---
+func | Callable | Callable decorator
