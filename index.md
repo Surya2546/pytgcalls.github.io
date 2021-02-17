@@ -17,7 +17,7 @@ This is audio type needed
 Field | Value
 --- | ---
 acodec | pcm_s16le 
-bitrate | 48000
+bitrate | 24000
 
 # Methods
 Here are all the methods available to make requests to PyTgCalls
@@ -80,13 +80,6 @@ app | pyrogram.Client | Pyrogram Client Class initialized
 
 ## on_event_update
 Decorator handling all information about status of calls and stream
-
-Field | Type | Description
---- | --- | ---
-func | Callable | Callable decorator
-
-## on_stream_end
-Decorator handling when stream ends
 
 Field | Type | Description
 --- | --- | ---
